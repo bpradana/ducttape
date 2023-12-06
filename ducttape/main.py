@@ -14,7 +14,10 @@ def main():
         python_binary=args.python_binary,
         copy_shebang=args.copy_shebang,
         public_key=args.public_key,
+        keygen=args.keygen,
     )
+    if output is None:
+        return
     output_file.write(output)
 
 
@@ -33,6 +36,7 @@ def _parse_args():
     parser.add_argument("--python-binary")
     parser.add_argument("--output-file")
     parser.add_argument("--copy-shebang", action="store_true")
+    parser.add_argument("keygen", action="store_true")
     parser.add_argument("--public-key")
     return parser.parse_args()
 

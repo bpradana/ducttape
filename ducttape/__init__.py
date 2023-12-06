@@ -15,12 +15,17 @@ def script(
     python_binary=None,
     copy_shebang=False,
     public_key=None,
+    keygen=False,
 ):
     if add_python_modules is None:
         add_python_modules = []
 
     if add_python_paths is None:
         add_python_paths = []
+
+    if keygen:
+        _keygen()
+        return
 
     python_paths = (
         [os.path.dirname(path)]
@@ -45,6 +50,12 @@ def script(
 
     ducttaped = "".join(output)
     return lambdafy(ducttaped)
+
+
+def _keygen():
+    crypt = RSACrypt()
+    crypt.generate_keys()
+    crypt.export_keys()
 
 
 def _read_sys_path_from_python_bin(binary_path):
