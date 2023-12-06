@@ -30,14 +30,20 @@ def _open_output(args):
 
 def _parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("script")
-    parser.add_argument("--add-python-module", action="append", default=[])
-    parser.add_argument("--add-python-path", action="append", default=[])
-    parser.add_argument("--python-binary")
-    parser.add_argument("--output-file")
-    parser.add_argument("--copy-shebang", action="store_true")
-    parser.add_argument("keygen", action="store_true")
-    parser.add_argument("--public-key")
+    parser.add_argument("script", nargs="?", help="path to script to ducttape")
+    parser.add_argument("--keygen", action="store_true", help="generate a keypair")
+    parser.add_argument(
+        "--add-python-module", action="append", default=[], help="add a python module"
+    )
+    parser.add_argument(
+        "--add-python-path", action="append", default=[], help="add a python path"
+    )
+    parser.add_argument("--python-binary", help="path to python binary")
+    parser.add_argument("--output-file", help="path to output file")
+    parser.add_argument("--public-key", help="path to public key")
+    parser.add_argument(
+        "--copy-shebang", action="store_true", help="copy shebang from source file"
+    )
     return parser.parse_args()
 
 

@@ -9,7 +9,7 @@ from .lambdafier import lambdafy
 
 
 def script(
-    path,
+    path=None,
     add_python_modules=None,
     add_python_paths=None,
     python_binary=None,
@@ -27,6 +27,8 @@ def script(
         _keygen()
         return
 
+    if path is None:
+        raise RuntimeError("no path provided")
     python_paths = (
         [os.path.dirname(path)]
         + add_python_paths
