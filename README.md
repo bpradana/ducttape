@@ -19,7 +19,7 @@ $ python setup.py install
 ### Generate RSA key pair
 This will generate `private.pem` and `public.pem` in your current directory
 ```bash
-$ ducttape keygen
+$ ducttape --keygen
 ```
 ### Encrypt
 ```bash
