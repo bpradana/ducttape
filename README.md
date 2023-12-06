@@ -32,13 +32,13 @@ $ python encrypted.py
 ```
 
 ## Example
-You can find an example of original script [here](example/hello.py) and the ducttaped one [here](example/tape.py), but you won't be able to run it because it's encrypted with my public key.
+You can find an example of original script [here](example/hello) and the ducttaped one [here](example/ducttaped.py), but you won't be able to run it because it's encrypted with my public key.
 
 To run the example, you need to generate your own key pair and encrypt the script with your public key.
 ```bash
 $ ducttape --keygen
-$ ducttape example/hello.py --public-key=public.pem > example/tape.py
-$ python example/tape.py
+$ ducttape example/hello/main.py --public-key=public.pem > example/ducttaped.py
+$ python example/ducttaped.py
 ```
 
 ## License
