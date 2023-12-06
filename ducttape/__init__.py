@@ -5,6 +5,7 @@ import subprocess
 from .stdlib import is_stdlib_module
 from .crypt import RSACrypt
 from .tree import remove_docstring
+from .lambdafier import lambdafy
 
 
 def script(
@@ -41,7 +42,9 @@ def script(
     )
     with _open_source_file(path) as source_file:
         output.append(_indent(source_file.read()))
-    return "".join(output)
+
+    ducttaped = "".join(output)
+    return lambdafy(ducttaped)
 
 
 def _read_sys_path_from_python_bin(binary_path):
@@ -80,7 +83,7 @@ def _header():
     with open(crypt_path, encoding="utf-8") as crypt_file:
         header_code += crypt_file.read()
 
-    prelude_path = os.path.join(os.path.dirname(__file__), "prelude.py")
+    prelude_path = os.path.join(os.path.dirname(__file__), "header.py")
     with open(prelude_path, encoding="utf-8") as prelude_file:
         header_code += prelude_file.read()
 
