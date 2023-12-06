@@ -12,7 +12,7 @@ setup(
     name="ducttape",
     version="0.0.1",
     description="Package, encrypt and obfuscate Python scripts",
-    long_description=read("README.rst"),
+    long_description=read("README.md"),
     author="Michael Williamson, Bintang Pradana Erlangga Putra",
     author_email="mike@zwobble.org, work.bpradana@gmail.com",
     url="https://github.com/bpradana/ducttape",
