@@ -8,7 +8,11 @@ It is a fork of [stickytape](https://github.com/mwilliamson/stickytape) with add
 - Obfuscate your python scripts
 
 ## Installation
-You can install DuctTape from source:
+The easiest way to install ducttape is using pip:
+```bash
+$ pip install pyducttape
+```
+But you can also install DuctTape from source:
 ```bash
 $ git clone https://github.com/bpradana/ducttape.git
 $ cd ducttape
