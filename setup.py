@@ -9,7 +9,7 @@ def read(fname):
 
 
 setup(
-    name="ducttape",
+    name="pyducttape",
     version="0.0.1",
     description="Package, encrypt and obfuscate Python scripts",
     long_description=read("README.md"),
