@@ -1,4 +1,4 @@
-name: Publish to PyPI on Release
+name: Create Release
 
 on:
   release:
@@ -24,8 +24,15 @@ jobs:
       - name: Build
         run: python setup.py sdist bdist_wheel
 
-      - name: Publish
+      - name: Publish to PyPI
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         run: python -m twine upload dist/*
+
+      - name: Publish to GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+          body: This is an automated release of ${{ github.ref }}.
+          token: ${{ secrets.GITHUB_TOKEN }}
